@@ -148,6 +148,7 @@ function CourseDetails() {
                 </p>
               </div>
               <p className={`text-richblack-200`}>{courseDescription}</p>
+              <p className="text-sm text-richblack-400">Course ID: {course_id}</p>
               <div className="text-md flex flex-wrap items-center gap-2">
                 <span className="text-yellow-25">{avgReviewCount}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={24} />

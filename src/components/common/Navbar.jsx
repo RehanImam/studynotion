@@ -32,6 +32,7 @@ function Navbar() {
       setLoading(false)
     })()
   }, [])
+  
 
   // console.log("sub links", subLinks)
 
@@ -72,7 +73,7 @@ function Navbar() {
                           <p className="text-center">Loading...</p>
                         ) : (subLinks && subLinks.length) ? (
                           <>
-                            {subLinks
+                            {/* {subLinks
                               ?.filter(
                                 (subLink) => subLink?.courses?.length > 0
                               )
@@ -87,8 +88,22 @@ function Navbar() {
                                 >
                                   <p>{subLink.name}</p>
                                 </Link>
-                              ))}
+                              ))} */}
+                              {subLinks?.map((subLink, i) => {
+  console.log("Each Category 👉", subLink)
+
+  return (
+    <Link
+      to={`/catalog/${subLink.name.toLowerCase().replace(/\s+/g, "-")}`}
+      className="rounded-lg bg-transparent py-4 pl-4 hover:bg-richblack-50"
+      key={i}
+    >
+      <p>{subLink.name}</p>
+    </Link>
+  )
+})}
                           </>
+                         
                         ) : (
                           <p className="text-center">No Courses Found</p>
                         )}
@@ -149,3 +164,4 @@ function Navbar() {
 }
 
 export default Navbar
+
